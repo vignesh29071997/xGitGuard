@@ -70,6 +70,17 @@ def is_special_chars_present(word):
     check = regex.search(word)
     return 1 if check else 0
 
+def findLineNumber(lines, code_line):
+    """
+    Find the 1-based line number of code_line within the list of lines.
+    params:  lines - list - lines of the file content
+    params:  code_line - string - the line to search for
+    returns: line number (int) or 0 if not found
+    """
+    for idx, line in enumerate(lines, start=1):
+        if code_line.strip() in line:
+            return idx
+    return 0
 
 def mask_data(code, secret):
     """
